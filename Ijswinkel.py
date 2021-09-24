@@ -1,4 +1,4 @@
-print('Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is.')
+print('Welkom bij Papi Gelato')
 def soort_bolletje(aantal):
     x = 1
     for i in range(1,aantal+1):
