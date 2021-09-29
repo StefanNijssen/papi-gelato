@@ -25,40 +25,44 @@ def aantal_bolletjes():
 def bakje_hoorntje(aantal):
     bakje_hoorntje = input('Wilt u deze ' + str(aantal) + ' bolletje(s) in A) een hoorntje of B) een bakje?')
     if bakje_hoorntje == "A":
-        totaal = prijs(aantal, True, False)
+        totaal = prijs(aantal, 1, 0)
         hoorntje = input('Hier is uw hoorntje met ' + str(aantal) + ' bolletje(s). Wilt u nog meer bestellen? (Y/N)')
         if hoorntje == 'Y':
             aantal_bolletjes()
             
         elif hoorntje == 'N':
+            
             print('Bedankt en tot ziens')
 
     elif bakje_hoorntje == "B":
-        totaal = prijs(aantal, False, True)
+        totaal = prijs(aantal, 0, 1)
         bakje = input('Hier is uw bakje met ' + str(aantal) + ' bolletje(s). Wilt u nog meer bestellen? (Y/N)')
         if bakje == 'Y':
             aantal_bolletjes()
         elif bakje == 'N':
-            print(str(totaal))
+            totaal()
             print('Bedankt en tot ziens')
     else:
         print('sorry dat snap ik niet...')
 
 def prijs(aantal,hoorntje, bol):
     totaal_prijs = 0
-    bolletje = 1.10
+    bolletje = round(1.10, 2)
     hoorn = 1.25
     bakje = 0.75
-    if hoorntje == True:
+    if hoorntje == 1:
         totaal_prijs += hoorn
-    elif bol == True:
+    elif bol == 1:
         totaal_prijs =+ bakje
     bolletje_prijs = bolletje * aantal
     totaal_prijs = totaal_prijs + bolletje_prijs
-    return totaal_prijs
-def totaal(aantal,hoorn,bol):
+    
     print("--------[Papi Gelato]--------")
-    print("Bolletjes        " + str(aantal) + " x €1.10 = €" + str(aantal + 1.10))
-    print("Hoorntje        " + str(hoorn) + " x €1.25 = €" + str(aantal + 1.25))
-    print("Bakje      " + str(bol) + " x €1.25 = €" + str(aantal + 0.75))
+    print("Bolletjes        " + str(aantal) + " x €1.10 = €" + str(aantal * 1.10))
+    print("Hoorntje         " + str(hoorntje) + " x €1.25 = €" + str(hoorntje * 1.25))
+    print("Bakje            " + str(bol) + " x €0.75 = €" + str(bol * 0.75))
+    print("Totaal                     = €" + str(round(totaal_prijs,2)))
+
+    return totaal_prijs
+
 aantal_bolletjes()
