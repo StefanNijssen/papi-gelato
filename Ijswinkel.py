@@ -2,11 +2,11 @@ print('Welkom bij Papi Gelato')
 def soort_bolletje(aantal):
     x = 1
     for i in range(1,aantal+1):
-        soort = input('Welke smaak wilt u voor bolletje nummer' + str(x) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille?')
+        soort = input('Welke smaak wilt u voor bolletje nummer' + str(x) + '? A) Aardbei, C) Chocolade of V) Vanille?')
         if soort == "V" or "M" or "C" or "A":
             x += 1
         else:
-            print('Sorry dat snap ik niet...')
+            print('Sorry dat is geen optie die we aanbieden..')
             soort_bolletje()
 
 def aantal_bolletjes():
@@ -21,7 +21,7 @@ def aantal_bolletjes():
     elif aantal > 8:
         print('Sorry, zulke grote bakken hebben we niet')
     else:
-        print('Sorry dat snap ik niet...')
+        print('Sorry dat is geen optie die we aanbieden..')
 def bakje_hoorntje(aantal):
     bakje_hoorntje = input('Wilt u deze ' + str(aantal) + ' bolletje(s) in A) een hoorntje of B) een bakje?')
     if bakje_hoorntje == "A":
@@ -44,7 +44,7 @@ def bakje_hoorntje(aantal):
             totaal()
             print('Bedankt en tot ziens')
     else:
-        print('sorry dat snap ik niet...')
+        print('Sorry dat is geen optie die we aanbieden..')
 
 def prijs(aantal,hoorntje, bol, top):
     top = toppings(top)
@@ -61,7 +61,7 @@ def prijs(aantal,hoorntje, bol, top):
     totaal_prijs = totaal_prijs + top
     
     print("--------[Papi Gelato]--------")
-    print("Bolletjes        " + str(aantal) + " x €1.10 = €" + str(aantal * 1.10))
+    print("Bolletjes        " + str(aantal) + " x €0.95 = €" + str(aantal * 0.95))
     print("Hoorntje         " + str(hoorntje) + " x €1.25 = €" + str(hoorntje * 1.25))
     print("Bakje            " + str(bol) + " x €0.75 = €" + str(bol * 0.75))
     print("Toppings                   = €" + str(round(top,2)) )
@@ -98,14 +98,14 @@ def zakelijk():
     liter = int(input("Hoeveel liter wilt u bestellen?"))
     liters = liter
     while liters > 0:
-        input('Welke smaak wilt u voor liter nummer' + str(liter) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille?')
+        input('Welke smaak wilt u voor liter nummer' + str(liter) + '? A) Aardbei, C) Chocolade, V) Vanille?')
         liters -= 1
 
     prijs = liter * 9.80
-    print("Liter     " + str(liter) +  "x 9,80 = " + str(round(prijs,2))
+    print("Liter     " + str(liter) +  "x 9,80 = " + str(round(prijs,2)))
     print("                                    --------+")
     print("Totaal                              = " + str(prijs))
-    print("BTW                                 = " + str(round(prijs*0.09,2))
+    print("BTW(6%)                                 = " + str(round(prijs*0.06,2)))
 klant = input("Bent u een zakelijke of particuliere klant?Z/P\n")
 if klant == "P":
     aantal_bolletjes()
