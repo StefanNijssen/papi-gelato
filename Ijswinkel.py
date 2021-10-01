@@ -93,5 +93,21 @@ def toppings(bakje):
             
     else:
         print("Sorry dat begrijp ik niet.")
-        
-aantal_bolletjes()
+
+def zakelijk():
+    liter = int(input("Hoeveel liter wilt u bestellen?"))
+    liters = liter
+    while liters > 0:
+        input('Welke smaak wilt u voor liter nummer' + str(liter) + '? A) Aardbei, C) Chocolade, M) Munt of V) Vanille?')
+        liters -= 1
+
+    prijs = liter * 9.80
+    print("Liter     " + str(liter) +  "x 9,80 = " + str(round(prijs,2))
+    print("                                    --------+")
+    print("Totaal                              = " + str(prijs))
+    print("BTW                                 = " + str(round(prijs*0.09,2))
+klant = input("Bent u een zakelijke of particuliere klant?Z/P\n")
+if klant == "P":
+    aantal_bolletjes()
+elif klant == "Z":
+    zakelijk()
